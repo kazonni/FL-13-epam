@@ -1,0 +1,251 @@
+*{
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+body{
+    background-color: $body-background;
+}
+@mixin btn{
+    background-color: $button-color;
+    padding: 16px 55px;
+    color: $white-color;
+    font-family: $main-font;
+    font-weight: 600;
+    font-size: 22px;
+}
+@mixin link($color, $font-family, $font-size, $padding){
+    color: $color;
+    font-family: $font-family;
+    font-size: $font-size;
+    padding-left: $padding;
+}
+%container{
+    width: 1550px;
+    margin: 0 auto;
+}
+%landing-logo{
+    display: flex;
+    padding-left: 7px;
+    padding-top: 25px;
+    img{
+        width: 56px;
+        height: 56px;
+    }
+    p{
+        font-family: $secondary-font;
+        font-size: 30px;
+        font-weight: bold;
+        padding-left: 18px;
+        padding-top: 6px;
+        line-height: 25px;
+        span{
+            display: block;
+            font-size: 13px;
+            text-align: center;
+        }
+    }
+}
+%title{
+    position: relative;
+    z-index: 0;
+    font-family: $main-font;
+    color: $header-font-color;
+    font-weight: bold;
+}
+%word-bg{
+    content: '';
+    background-color: $word-background;
+    position: absolute;
+    z-index: -1;
+    height: 62px;
+}
+.header{
+    height: 900px;
+    width: 1920px;
+    background: $header-background;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    border-bottom-right-radius: 40%;
+    .header-wrap{
+        @extend %container;
+        .landing-logo{
+            @extend %landing-logo;
+            color: $header-font-color;
+        }
+        .header_heading{
+            @extend %title;
+            width: 610px;
+            margin-top: 90px;
+            margin-left: 8px;
+            line-height: 1em;
+            font-size: 90px;
+            &:after{
+                @extend %word-bg;
+                width: 380px;
+                right: 231px;
+                top: 118px;
+            }
+        }
+        .header_text{
+            font-family: $secondary-font;
+            font-size: 20px;
+            line-height: 30px;
+            color: $header-font-color;
+            white-space: pre-line;
+            margin-top: 45px;
+            margin-left: 8px;
+        }
+        .header_button{
+            @include btn;
+            margin-top: 75px;
+            margin-left: 7px;
+        }
+        .login{
+            @include link($white-color, $main-font, 25px, 187px);
+        }
+    }
+}
+.section{
+    max-width: 1140px;
+    margin: 0 auto;
+    position: relative;
+    .section_text{
+        @extend %title;
+        margin-bottom: 47px;
+        font-size: 52px;
+        font-weight: 600;
+        text-align: center;
+        padding-top: 45px;
+        padding-left: 15px;
+        &:after{
+            @extend %word-bg;
+            width: 232px;
+            right: 320px;
+            top: 38px;
+        }
+    }
+    .section_card{
+        display: flex;
+        margin-left: 15px;
+        background-color: $section-footer-background;
+        border-radius: 8px;
+        margin-bottom: 30px;
+        &:nth-child(1) .section_card_img{
+            width: map-get($img-width, first);
+        }
+        &:nth-child(2) .section_card_img{
+            width: map-get($img-width, second);
+        }
+        &:nth-child(3) .section_card_img{
+            width: map-get($img-width, third);
+        }
+        .section_card_img{
+            margin: 25px;
+            border-radius: 8px;
+            height: 296px; 
+        }
+        &:nth-child(1) .section_card_right_container{
+            width: map-get($text-section-width, first);
+        }
+        &:nth-child(2) .section_card_right_container{
+            width: map-get($text-section-width, second);
+        }
+        &:nth-child(3) .section_card_right_container{
+            width: map-get($text-section-width, third);
+        }
+        .section_card_right_container{
+            margin-left: 60px;
+            color: $white-color;
+            text-align: center;
+            .section_card_heading{
+                font-family: $main-font;
+                font-weight: 600;
+                font-size: 30px;
+                margin-top: 62px;
+                margin-left: 20px;
+            }
+            .section_card_text{
+                margin-top: 25px;
+                margin-left: 17px;
+                margin-bottom: 12px;
+                text-align: justify;
+                line-height: 30px;
+                font-family: $secondary-font;
+                font-size: 20px;
+                color: $main-font-color;
+            }
+            .section_link{
+                @include link($main-font-color, $main-font, 20px, 18px);
+                font-weight: 600;
+            }
+        }
+    }
+    .section_banner{
+        width: 1198px;
+        height: 180px;
+        position: absolute;
+        top: 1429px;
+        left: -20px;
+        background: $banner-background;
+        border-radius: 7px;
+        .section_banner_text_wrap{
+            margin-left: 127px;
+            .section_banner_heading{
+                @extend %title;
+                margin-top: 30px; 
+                font-size: 38px;
+                &:after{
+                    @extend %word-bg;
+                    width: 80px;
+                    right: 840px;
+                    top: -14px;
+                }
+            }
+            .section_banner_text{
+                padding-top: 20px;
+                font-family: $secondary-font;
+                font-size: 20px;
+                color: $main-font-color;
+            }
+        }
+        .section_banner_button{
+            @include btn;
+            position: absolute;
+            top: 60px;
+            left: 894px;
+        }
+    }
+}
+.footer{
+    background-color: $section-footer-background;
+    width: 1920px;
+    margin-top: 260px;
+    height: 305px;
+    .footer-wrap{
+        @extend %container;
+        display: flex;
+        justify-content: space-between;
+        padding-top: 147px;
+        .landing-logo{
+            color: $main-font-color;
+            @extend %landing-logo;
+        }
+        .footer_text{
+            width: 380px;
+            padding-top: 12px;
+            color: $main-font-color;
+            font-family: $secondary-font;
+            font-size: 17px;
+            line-height: 25px;
+        }
+        .footer-cr{
+            padding-top: 35px;
+            padding-right: 5px;
+            color: $main-font-color;
+            font-family: $secondary-font;
+            font-size: 20px;
+        }
+    }
+}

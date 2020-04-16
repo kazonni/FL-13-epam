@@ -1,0 +1,207 @@
+* {
+  margin: 0;
+  padding: 0;
+  border: 0; }
+
+body {
+  background-color: #fff; }
+
+.header .header-wrap, .footer .footer-wrap {
+  width: 1550px;
+  margin: 0 auto; }
+
+.header .header-wrap .landing-logo, .footer .footer-wrap .landing-logo {
+  display: flex;
+  padding-left: 7px;
+  padding-top: 25px; }
+  .header .header-wrap .landing-logo img, .footer .footer-wrap .landing-logo img {
+    width: 56px;
+    height: 56px; }
+  .header .header-wrap .landing-logo p, .footer .footer-wrap .landing-logo p {
+    font-family: "Hind", sans-serif;
+    font-size: 30px;
+    font-weight: bold;
+    padding-left: 18px;
+    padding-top: 6px;
+    line-height: 25px; }
+    .header .header-wrap .landing-logo p span, .footer .footer-wrap .landing-logo p span {
+      display: block;
+      font-size: 13px;
+      text-align: center; }
+
+.header .header-wrap .header_heading, .section .section_text, .section .section_banner .section_banner_text_wrap .section_banner_heading {
+  position: relative;
+  z-index: 0;
+  font-family: "Source Sans Pro", sans-serif;
+  color: #2c2f3c;
+  font-weight: bold; }
+
+.header .header-wrap .header_heading:after, .section .section_text:after, .section .section_banner .section_banner_text_wrap .section_banner_heading:after {
+  content: '';
+  background-color: #14a0c7;
+  position: absolute;
+  z-index: -1;
+  height: 62px; }
+
+.header {
+  height: 900px;
+  width: 1920px;
+  background: url(../img/m-h-day.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  border-bottom-right-radius: 40%; }
+  .header .header-wrap .landing-logo {
+    color: #2c2f3c; }
+  .header .header-wrap .header_heading {
+    width: 610px;
+    margin-top: 90px;
+    margin-left: 8px;
+    line-height: 1em;
+    font-size: 90px; }
+    .header .header-wrap .header_heading:after {
+      width: 380px;
+      right: 231px;
+      top: 118px; }
+  .header .header-wrap .header_text {
+    font-family: "Hind", sans-serif;
+    font-size: 20px;
+    line-height: 30px;
+    color: #2c2f3c;
+    white-space: pre-line;
+    margin-top: 45px;
+    margin-left: 8px; }
+  .header .header-wrap .header_button {
+    background-color: #699900;
+    padding: 16px 55px;
+    color: #fff;
+    font-family: "Source Sans Pro", sans-serif;
+    font-weight: 600;
+    font-size: 22px;
+    margin-top: 75px;
+    margin-left: 7px; }
+  .header .header-wrap .login {
+    color: #fff;
+    font-family: "Source Sans Pro", sans-serif;
+    font-size: 25px;
+    padding-left: 187px; }
+
+.section {
+  max-width: 1140px;
+  margin: 0 auto;
+  position: relative; }
+  .section .section_text {
+    margin-bottom: 47px;
+    font-size: 52px;
+    font-weight: 600;
+    text-align: center;
+    padding-top: 45px;
+    padding-left: 15px; }
+    .section .section_text:after {
+      width: 232px;
+      right: 320px;
+      top: 38px; }
+  .section .section_card {
+    display: flex;
+    margin-left: 15px;
+    background-color: #21232e;
+    border-radius: 8px;
+    margin-bottom: 30px; }
+    .section .section_card:nth-child(1) .section_card_img {
+      width: 370px; }
+    .section .section_card:nth-child(2) .section_card_img {
+      width: 356px; }
+    .section .section_card:nth-child(3) .section_card_img {
+      width: 398px; }
+    .section .section_card .section_card_img {
+      margin: 25px;
+      border-radius: 8px;
+      height: 296px; }
+    .section .section_card:nth-child(1) .section_card_right_container {
+      width: 519px; }
+    .section .section_card:nth-child(2) .section_card_right_container {
+      width: 530px; }
+    .section .section_card:nth-child(3) .section_card_right_container {
+      width: 495px; }
+    .section .section_card .section_card_right_container {
+      margin-left: 60px;
+      color: #fff;
+      text-align: center; }
+      .section .section_card .section_card_right_container .section_card_heading {
+        font-family: "Source Sans Pro", sans-serif;
+        font-weight: 600;
+        font-size: 30px;
+        margin-top: 62px;
+        margin-left: 20px; }
+      .section .section_card .section_card_right_container .section_card_text {
+        margin-top: 25px;
+        margin-left: 17px;
+        margin-bottom: 12px;
+        text-align: justify;
+        line-height: 30px;
+        font-family: "Hind", sans-serif;
+        font-size: 20px;
+        color: #c0c3ce; }
+      .section .section_card .section_card_right_container .section_link {
+        color: #c0c3ce;
+        font-family: "Source Sans Pro", sans-serif;
+        font-size: 20px;
+        padding-left: 18px;
+        font-weight: 600; }
+  .section .section_banner {
+    width: 1198px;
+    height: 180px;
+    position: absolute;
+    top: 1429px;
+    left: -20px;
+    background: linear-gradient(90deg, #65950f 0%, #2d5bd7 100%);
+    border-radius: 7px; }
+    .section .section_banner .section_banner_text_wrap {
+      margin-left: 127px; }
+      .section .section_banner .section_banner_text_wrap .section_banner_heading {
+        margin-top: 30px;
+        font-size: 38px; }
+        .section .section_banner .section_banner_text_wrap .section_banner_heading:after {
+          width: 80px;
+          right: 840px;
+          top: -14px; }
+      .section .section_banner .section_banner_text_wrap .section_banner_text {
+        padding-top: 20px;
+        font-family: "Hind", sans-serif;
+        font-size: 20px;
+        color: #c0c3ce; }
+    .section .section_banner .section_banner_button {
+      background-color: #699900;
+      padding: 16px 55px;
+      color: #fff;
+      font-family: "Source Sans Pro", sans-serif;
+      font-weight: 600;
+      font-size: 22px;
+      position: absolute;
+      top: 60px;
+      left: 894px; }
+
+.footer {
+  background-color: #21232e;
+  width: 1920px;
+  margin-top: 260px;
+  height: 305px; }
+  .footer .footer-wrap {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 147px; }
+    .footer .footer-wrap .landing-logo {
+      color: #c0c3ce; }
+    .footer .footer-wrap .footer_text {
+      width: 380px;
+      padding-top: 12px;
+      color: #c0c3ce;
+      font-family: "Hind", sans-serif;
+      font-size: 17px;
+      line-height: 25px; }
+    .footer .footer-wrap .footer-cr {
+      padding-top: 35px;
+      padding-right: 5px;
+      color: #c0c3ce;
+      font-family: "Hind", sans-serif;
+      font-size: 20px; }

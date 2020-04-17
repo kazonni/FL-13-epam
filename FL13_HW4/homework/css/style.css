@@ -87,6 +87,9 @@ a{
     align-self: center;
     margin-top: 58px;
 }
+.header-button:hover{
+    color: #bfba55;;
+}
 .article{
     padding: 0 5px;
 }
@@ -137,6 +140,9 @@ a{
     font-size: 16px;
     letter-spacing: 1px;
     border: 1px solid #777;
+}
+.article-button:hover{
+    color: #bfba55;
 }
 .line{
     margin-top: 75px;

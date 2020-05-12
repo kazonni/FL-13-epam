@@ -61,7 +61,6 @@ function createTreeDom(obj) {
   for (let i = 0; i < obj.length; i++) {
     let li = document.createElement('li');
         li.innerHTML = obj[i].title;
-        //li.className = 'main';
         ul.append(li);
         createIcon(obj[i].folder, li);
     if (obj[i].folder === true){
@@ -69,7 +68,6 @@ function createTreeDom(obj) {
       if(obj[i].children !== null){
         let childrenUl = createTreeDom(obj[i].children);
         childrenUl.style.display = 'none';
-        //childrenUl.className = 'inner';
         li.append(childrenUl);
       } else if(obj[i].children === null) {
         let empty = document.createElement('li');
@@ -97,9 +95,7 @@ window.onload = function() {
 for(let i = 0; i < folders.length; i++){
   folders[i].onclick = function(){
     let content = folders[i].getElementsByTagName('ul');
-    console.log(content)
-    console.log(i)
-      content[j].style.display = 'block';
+    content[i].style.display = 'block';
   }
 }
 }

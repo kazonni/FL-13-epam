@@ -2,6 +2,13 @@ ul {
     list-style: none;
 }
 
+.open {
+    display: block;
+}
+
+.close {
+    display: none;
+}
 /* li:before {
     font-family: 'Material Icons';
     font-size: 20px;

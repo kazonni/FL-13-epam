@@ -67,12 +67,12 @@ function createTreeDom(obj) {
       li.className = 'folder';
       if(obj[i].children !== null){
         let childrenUl = createTreeDom(obj[i].children);
-        childrenUl.style.display = 'none';
+        childrenUl.className = 'close';
         li.append(childrenUl);
       } else if(obj[i].children === null) {
         let empty = document.createElement('li');
         empty.innerHTML = 'Folder is empty';
-        empty.style.display = 'none';
+        empty.className = 'close';
         ul.append(empty);
       }
      }
@@ -94,8 +94,11 @@ window.onload = function() {
   let folders = document.getElementsByClassName('folder');
 for(let i = 0; i < folders.length; i++){
   folders[i].onclick = function(){
-    let content = folders[i].getElementsByTagName('ul');
-    content[i].style.display = 'block';
+    if(folders[i].childNodes[2].classList.contains('close')){
+      folders[i].childNodes[2].className = 'show';
+    } else if(folders[i].childNodes[2].classList.contains('show')){
+      folders[i].childNodes[2].className = 'close';
+    }
   }
 }
 }

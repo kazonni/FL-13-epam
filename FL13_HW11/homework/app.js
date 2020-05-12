@@ -70,6 +70,7 @@ function createTreeDom(obj) {
         childrenUl.className = 'close';
         li.append(childrenUl);
       } else if(obj[i].children === null) {
+        li.className = 'empty';
         let empty = document.createElement('li');
         empty.innerHTML = 'Folder is empty';
         empty.className = 'close';
@@ -91,13 +92,24 @@ function createIcon(obj, elem){
   elem.prepend(i);
 }
 
-window.onclick = function(event){
+
+
+rootNode.addEventListener('click', function(event){
   let target = event.target;
-  if(target.childNodes[2].classList.contains('close')){
-          target.childNodes[2].className = 'show';
-        } else if(target.childNodes[2].classList.contains('show')){
-          target.childNodes[2].className = 'close';
-        }
-      }
+
+  if(target.classList.contains('folder')){
+    if(target.childNodes[2].classList.contains('close')){
+      target.childNodes[2].className = 'show';
+    } else if(target.childNodes[2].classList.contains('show')){
+      target.childNodes[2].className = 'close';
+    }
+  } else if(target.classList.contains('empty')){
+    if(target.nextElementSibling.classList.contains('close')){
+      target.nextElementSibling.className = 'show';
+    } else if(target.nextElementSibling.classList.contains('show')){
+      target.nextElementSibling.className = 'close';
+    }
+  }
+})
 
 createTree(rootNode, data);

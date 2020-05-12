@@ -60,17 +60,24 @@ function createTreeDom(obj) {
   let ul = document.createElement('ul');
   for (let i = 0; i < obj.length; i++) {
     let li = document.createElement('li');
-        li.innerHTML = obj[i].title;
-        ul.append(li);
-        createIcon(obj[i].folder, li);
+    let span = document.createElement('span');
+    let input = document.createElement('input');
+    
+    ul.append(li);
+    li.append(span);
+    span.append(input);
+    click(span);
+    input.value = obj[i].title;
+    input.setAttribute('disabled','disabled');
+    createIcon(obj[i].folder, span);
     if (obj[i].folder === true){
-      li.className = 'folder';
+      span.className = 'folder';
       if(obj[i].children !== null){
         let childrenUl = createTreeDom(obj[i].children);
         childrenUl.className = 'close';
         li.append(childrenUl);
       } else if(obj[i].children === null) {
-        li.className = 'empty';
+        span.className = 'empty';
         let empty = document.createElement('li');
         empty.innerHTML = 'Folder is empty';
         empty.className = 'close';
@@ -88,30 +95,34 @@ function createIcon(obj, elem){
     i.innerHTML = 'folder';
   } else {
     i.innerHTML = 'insert_drive_file';
+    i.className = 'material-icons file';
   }
   elem.prepend(i);
 }
 
-rootNode.addEventListener('click', function(event){
-  let target = event.target;
+function click(target){
+  target.addEventListener('click', function(){
+    let icon = target.firstChild;
+    let folder = target.parentElement;
 
-  if(target.classList.contains('folder')){
-    if(target.childNodes[2].classList.contains('close')){
-      target.childNodes[2].className = 'show';
-      target.firstChild.innerHTML = 'folder_open';
-    } else if(target.childNodes[2].classList.contains('show')){
-      target.childNodes[2].className = 'close';
-      target.firstChild.innerHTML = 'folder';
+    if(target.classList.contains('folder')){
+      if(folder.childNodes[1].classList.contains('close')){
+        folder.childNodes[1].className = 'show';
+        icon.innerHTML = 'folder_open';
+      } else if(folder.childNodes[1].classList.contains('show')){
+        folder.childNodes[1].className = 'close';
+        icon.innerHTML = 'folder';
+      }
+    } else if(target.classList.contains('empty')){
+      if(folder.nextElementSibling.classList.contains('close')){
+        folder.nextElementSibling.className = 'show';
+        icon.innerHTML = 'folder_open';
+      } else if(folder.nextElementSibling.classList.contains('show')){
+        folder.nextElementSibling.className = 'close';
+        icon.innerHTML = 'folder';
+      }
     }
-  } else if(target.classList.contains('empty')){
-    if(target.nextElementSibling.classList.contains('close')){
-      target.nextElementSibling.className = 'show';
-      target.firstChild.innerHTML = 'folder_open';
-    } else if(target.nextElementSibling.classList.contains('show')){
-      target.nextElementSibling.className = 'close';
-      target.firstChild.innerHTML = 'folder';
-    }
-  }
-})
+  })
+}
 
 createTree(rootNode, data);

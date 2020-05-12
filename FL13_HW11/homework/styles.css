@@ -1,6 +1,15 @@
 ul {
     list-style: none;
 }
+span {
+    display: inline-block;
+    background: transparent;
+}
+
+span:hover {
+    background: rgba(192, 192, 192);
+    cursor: pointer;
+}
 
 .open {
     display: block;
@@ -9,8 +18,20 @@ ul {
 .close {
     display: none;
 }
-/* li:before {
-    font-family: 'Material Icons';
-    font-size: 20px;
-    content: 'folder';
-} */
+
+input {
+    border: none;
+    background: none;
+    outline: none;
+}
+input:hover {
+    cursor: pointer;
+}
+
+i {
+    color: yellow;
+}
+
+.file {
+    color: gray;
+}

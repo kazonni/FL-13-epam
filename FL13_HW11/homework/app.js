@@ -90,17 +90,14 @@ function createIcon(obj, elem){
   }
   elem.prepend(i);
 }
-window.onload = function() {
-  let folders = document.getElementsByClassName('folder');
-for(let i = 0; i < folders.length; i++){
-  folders[i].onclick = function(){
-    if(folders[i].childNodes[2].classList.contains('close')){
-      folders[i].childNodes[2].className = 'show';
-    } else if(folders[i].childNodes[2].classList.contains('show')){
-      folders[i].childNodes[2].className = 'close';
-    }
-  }
-}
-}
+
+window.onclick = function(event){
+  let target = event.target;
+  if(target.childNodes[2].classList.contains('close')){
+          target.childNodes[2].className = 'show';
+        } else if(target.childNodes[2].classList.contains('show')){
+          target.childNodes[2].className = 'close';
+        }
+      }
 
 createTree(rootNode, data);

@@ -92,22 +92,24 @@ function createIcon(obj, elem){
   elem.prepend(i);
 }
 
-
-
 rootNode.addEventListener('click', function(event){
   let target = event.target;
 
   if(target.classList.contains('folder')){
     if(target.childNodes[2].classList.contains('close')){
       target.childNodes[2].className = 'show';
+      target.firstChild.innerHTML = 'folder_open';
     } else if(target.childNodes[2].classList.contains('show')){
       target.childNodes[2].className = 'close';
+      target.firstChild.innerHTML = 'folder';
     }
   } else if(target.classList.contains('empty')){
     if(target.nextElementSibling.classList.contains('close')){
       target.nextElementSibling.className = 'show';
+      target.firstChild.innerHTML = 'folder_open';
     } else if(target.nextElementSibling.classList.contains('show')){
       target.nextElementSibling.className = 'close';
+      target.firstChild.innerHTML = 'folder';
     }
   }
 })

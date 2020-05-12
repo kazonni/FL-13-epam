@@ -52,11 +52,11 @@ const data = [
 
 const rootNode = document.getElementById('root');
 
-function createTree(container, obj) {
-  container.append(createTreeDom(obj));
+function createMainTree(container, obj) {
+  container.append(createTree(obj));
 }
 
-function createTreeDom(obj) {
+function createTree(obj) {
   let ul = document.createElement('ul');
   for (let i = 0; i < obj.length; i++) {
     let li = document.createElement('li');
@@ -73,7 +73,7 @@ function createTreeDom(obj) {
     if (obj[i].folder === true){
       span.className = 'folder';
       if(obj[i].children !== null){
-        let childrenUl = createTreeDom(obj[i].children);
+        let childrenUl = createTree(obj[i].children);
         childrenUl.className = 'close';
         li.append(childrenUl);
       } else if(obj[i].children === null) {
@@ -125,4 +125,4 @@ function click(target){
   })
 }
 
-createTree(rootNode, data);
+createMainTree(rootNode, data);

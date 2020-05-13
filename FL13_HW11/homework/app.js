@@ -66,7 +66,7 @@ function createTree(obj) {
     ul.append(li);
     li.append(span);
     span.append(input);
-    click(span);
+    
     input.value = obj[i].title;
     input.setAttribute('disabled','disabled');
     createIcon(obj[i].folder, span);
@@ -100,29 +100,66 @@ function createIcon(obj, elem){
   elem.prepend(i);
 }
 
-function click(target){
-  target.addEventListener('click', function(){
-    let icon = target.firstChild;
-    let folder = target.parentElement;
+function createMenu(area) {
+  let ul = document.createElement('ul');
+  let rename = document.createElement('li');
+  let remove = document.createElement('li');
 
-    if(target.classList.contains('folder')){
-      if(folder.childNodes[1].classList.contains('close')){
-        folder.childNodes[1].className = 'show';
-        icon.innerHTML = 'folder_open';
-      } else if(folder.childNodes[1].classList.contains('show')){
-        folder.childNodes[1].className = 'close';
-        icon.innerHTML = 'folder';
+  ul.className = 'clickMenu';
+  rename.innerHTML = 'Rename';
+  remove.innerHTML = 'Delete item';
+  ul.append(rename, remove);
+  area.append(ul);
+}
+
+window.onload = function (){
+  const span = document.querySelectorAll('span');
+
+  for(let i = 0; i < span.length; i++){
+    span[i].addEventListener('click', function(){
+      let icon = span[i].firstChild;
+      let folder = span[i].parentElement;
+
+      if(span[i].classList.contains('folder')){
+        if(folder.childNodes[1].classList.contains('close')){
+          folder.childNodes[1].className = 'show';
+          icon.innerHTML = 'folder_open';
+        } else if(folder.childNodes[1].classList.contains('show')){
+          folder.childNodes[1].className = 'close';
+          icon.innerHTML = 'folder';
+        }
+      } else if(span[i].classList.contains('empty')){
+        if(folder.nextElementSibling.classList.contains('close')){
+          folder.nextElementSibling.className = 'show';
+          icon.innerHTML = 'folder_open';
+        } else if(folder.nextElementSibling.classList.contains('show')){
+          folder.nextElementSibling.className = 'close';
+          icon.innerHTML = 'folder';
+        }
       }
-    } else if(target.classList.contains('empty')){
-      if(folder.nextElementSibling.classList.contains('close')){
-        folder.nextElementSibling.className = 'show';
-        icon.innerHTML = 'folder_open';
-      } else if(folder.nextElementSibling.classList.contains('show')){
-        folder.nextElementSibling.className = 'close';
-        icon.innerHTML = 'folder';
-      }
-    }
-  })
+    });
+
+    span[i].addEventListener('contextmenu', function(){
+      const menu = document.querySelector('.clickMenu');
+      
+      event.preventDefault();
+      menu.style.top = `${event.clientY}px`;
+      menu.style.left = `${event.clientX}px`;
+      menu.classList.add('active');
+      span[i].classList.add('focused');
+      menu.firstChild.addEventListener('click', function(){
+        let input = span[i].lastChild;
+        input.removeAttribute('disabled');
+        input.focus();
+
+      })
+      document.addEventListener('click', function() {
+        menu.classList.remove('active');
+        span[i].classList.remove('focused');
+      }, false);
+    })
+  }
 }
 
 createMainTree(rootNode, data);
+createMenu(rootNode);

@@ -11,6 +11,11 @@ span:hover {
     cursor: pointer;
 }
 
+.focused {
+    background: rgba(192, 192, 192);
+    cursor: pointer;
+}
+
 .open {
     display: block;
 }
@@ -34,4 +39,29 @@ i {
 
 .file {
     color: gray;
+}
+
+.clickMenu {
+    margin: 0;
+    padding: 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: none;
+    box-shadow: 2px 2px 5px 1px rgba(168,166,168,1);
+    
+}
+
+.clickMenu.active{
+    display: block;
+}
+
+.clickMenu li {
+    background-color: rgb(243, 243, 243);
+    padding: 0 10px;
+}
+
+.clickMenu li:hover {
+    cursor: pointer;
+    background: rgba(192, 192, 192);
 }

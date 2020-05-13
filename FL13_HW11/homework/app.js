@@ -149,10 +149,19 @@ window.onload = function (){
       span[i].classList.add('focused');
       menu.firstChild.addEventListener('click', function(){
         let input = span[i].lastChild;
+        let pos = input.value.indexOf('.');
         input.removeAttribute('disabled');
         input.focus();
+        input.setSelectionRange(0, pos);
+        input.onblur = function(){
+          input.setAttribute('disabled','disabled');
+        }
+      });
 
-      })
+      menu.lastChild.addEventListener('click', function(){
+        span[i].remove();
+      });
+      
       document.addEventListener('click', function() {
         menu.classList.remove('active');
         span[i].classList.remove('focused');

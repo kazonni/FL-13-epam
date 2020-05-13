@@ -16,7 +16,7 @@ span:hover {
     cursor: pointer;
 }
 
-.open {
+.show {
     display: block;
 }
 
@@ -27,7 +27,6 @@ span:hover {
 input {
     border: none;
     background: none;
-    outline: none;
 }
 input:hover {
     cursor: pointer;

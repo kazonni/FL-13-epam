@@ -1,0 +1,91 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+
+#root {
+    width: 100vw;
+    display: flex;
+    
+}
+
+.left-side {
+    width: 50%;
+    height: 100vh;
+    border: 1px solid black;
+}
+
+.right-side {
+    width: 50%;
+    height: 100vh;
+    border: 1px solid green;
+}
+
+.image {
+    width: 300px;
+    height: 400px;
+}
+
+a{
+    text-decoration: none;
+    font-size: 20px;
+    color: #000;
+    display: block;
+    width: 40%;
+}
+
+a:hover {
+    background-color: teal;
+    color: #fff;
+}
+
+li {
+    list-style: none;
+    display: flex;
+    margin-bottom: 10px;
+}
+
+.btn {
+    padding: 10px 20px;
+    margin-left: 20px;
+    margin-right: 50px;
+}
+
+.btn:hover {
+    cursor: pointer;
+    background-color: teal;
+    color: #fff;
+}
+
+.add-btn {
+    padding: 10px 20px;
+}
+
+.add-btn:hover {
+    cursor: pointer;
+    border: 2px solid teal;
+}
+
+img {
+    padding-left: 33%;
+}
+
+p{
+    text-align: center;
+    font-size: 20px;
+}
+
+input {
+    display: block;
+    margin: 20px;
+    width: 50%;
+}
+
+.cancel-btn {
+    padding: 10px 20px;
+}
+
+.cancel-btn:hover {
+    cursor: pointer;
+    background-color: tomato;
+}

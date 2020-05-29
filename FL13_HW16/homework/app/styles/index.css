@@ -1,0 +1,52 @@
+#app-container {
+  width: 50%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.id{
+  display: inline-block;
+  width: 100px;
+}
+
+.raw {
+  margin: 5px 0;
+}
+
+form {
+  margin-left: 90px;
+}
+
+#name {
+  margin-right: 0;
+  margin-left: 15px;
+}
+
+#username {
+  margin-right: 0;
+}
+
+#addUser {
+  width: 120px;
+}
+
+input {
+  margin: 5px;
+  padding: 5px;
+  border: 1px solid black;
+}
+
+button {
+  padding: 5px;
+  margin: 5px;
+  border: none;
+}
+
+button:hover {
+  cursor: pointer;
+  outline: 1px solid black;
+}
+
+.deleteBtn {
+  background-color: red;
+}
